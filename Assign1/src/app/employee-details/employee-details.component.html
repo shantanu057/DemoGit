@@ -1,0 +1,28 @@
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>DOB</th>
+        <th>Address</th>
+    </tr>
+
+    <ng-container *ngFor='let emp of empdet'>
+        <tr>
+ 
+        <td>{{emp.firstname+" "+emp.secondname+" "+emp.lastname}}</td>
+    
+        <td>{{emp.age}}</td>
+
+        <td>{{emp.gender}}</td>
+        
+        <td>{{emp.dob}}</td>
+        
+        <td>{{emp.add1+" "+emp.add2}}</td>
+        
+    </ng-container>
+
+    <tr *ngIf="empdet.length==0">
+        <td colspan="6">No record found</td>
+    </tr>
+</table>

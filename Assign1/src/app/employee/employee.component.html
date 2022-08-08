@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row">
+        <br><br>
+        <h2 style="text-align: center;">Create Employee</h2>
+        <form style="margin-left:400px ;" class="example-form" #personForm="ngForm" (ngSubmit)="savePerson(personForm)">
+          
+            <h4>First Name</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>First Name</mat-label>
+              <input required id="firstname" name="firstname" matInput placeholder="Enter First Name" #firstnameControl="ngModel" ngModel>
+              <mat-error>
+                First Name is <strong>Required*</strong>
+              </mat-error>
+            </mat-form-field>
+            <h4>Middle Name</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Middle Name</mat-label>
+              <input id="middlename" name="middlename" matInput placeholder="Enter Middle Name" ngModel #middlenameControl="ngModel">
+            </mat-form-field>
+          
+            <h4>Last Name</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Last Name</mat-label>
+              <input required id="lastname" name="lastname" matInput placeholder="Enter Last Name" ngModel #lastnameControl="ngModel">
+              <mat-error>
+                Last Name is <strong>Required*</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+    
+            <h4>Age</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Age</mat-label>
+              <input type="number" required id="age" age name="age" matInput placeholder="Enter Age" ngModel #ageControl="ngModel">
+              <mat-error *ngIf="ageControl.value==''">
+                Age is <strong>Required*</strong>
+              </mat-error>
+              <mat-error *ngIf="ageControl.value<0 && ageControl.value>100">
+                Age is <strong>Incorrect</strong>
+              </mat-error>
+            </mat-form-field>
+            <br>
+    
+            <h4>Pincode</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Pincode</mat-label>
+              <input type="number" required id="pincode" name="pincode" matInput placeholder="Enter Pincode" ngModel #pinControl="ngModel">
+              <mat-error *ngIf="ageControl.value==''">
+                Pincode is <strong>Required*</strong>
+              </mat-error>
+              <mat-error *ngIf="pinControl.value<100000 && pinControl.value>999999">
+                Pincode is <strong>Incorrect</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <h4>Gender</h4>
+                <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let gend of gen" [value]="gend.value">
+                    {{gend.viewValue}}
+                    </mat-option>
+                </mat-select>
+                </mat-form-field>
+
+              <h4>Address 1</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address 1</mat-label>
+              <input required id="add1" name="add1" matInput placeholder="Enter Address1" ngModel  #add1Control="ngModel">
+              <mat-error *ngIf="add1Control.value==''">
+                Address1 is <strong>Required*</strong>
+              </mat-error>
+            </mat-form-field>
+
+            <h4>Address 2</h4>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Address 2</mat-label>
+              <input id="add2" name="add2" matInput placeholder="Enter Address2" ngModel>
+            </mat-form-field>
+              
+    
+              <br>
+              <label>DOB</label>
+            <br>
+            <input required type="date">
+            <br><br>
+            <div class="example-button-row">
+              <button mat-raised-button color="primary">Primary</button>
+            </div>
+          </form>
+        <br>
+    
+</div>
+</div>
+
+
+
